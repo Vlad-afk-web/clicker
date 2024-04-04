@@ -1,0 +1,70 @@
+<MenuScreen>
+  canvas.before:
+    Color:
+      rgba: rgba("#3F826D")
+    Rectangle
+      size: self.size
+      pos: self.pos
+
+
+  BoxLayout:
+    orientation: 'vertical'
+    padding: '20dp'
+    spacing: '20dp'
+    Image:
+      source: 'assets/images/6.png'
+      size_hint_y:.5
+      allow_stretch: True
+    Label:
+      id: title_game
+      text: 'Soldier from Team Fortress 2'
+      color: 'red'
+      font_name: 'assets/VarelaRound-Regular'
+      font_size: '30dp'
+      size_hint_y: .2
+      color:  "#F6B102"
+    Button:
+      text: 'start'
+      color: "#F5E4C4"
+      background_color: rgba("#960791")
+      background_normal: ''
+      background_down: ''
+      font_name: 'assets/VarelaRound-Regular'
+      font_size: '20dp'
+      size_hint_y: 0.25
+      on_press: root.manager.current = "game"
+    Button:
+      text: 'settings'
+      color: "#F5E4C4"
+      background_color: rgba("#960791")
+      size_hint_y: 0.25
+      background_normal: ''
+      background_down: ''
+      font_name: 'assets/VarelaRound-Regular'
+      font_size: '20dp'
+      on_press: self.background_color = 'F6B102'
+      on_release: self.background_color = '960791'
+
+<GameScreen>
+  BoxLayout:
+    orientation: 'vertical'
+    BoxLayout:
+      size_hint_y: 0.10
+      Button:
+        text: "x"
+        size_hint_y: 0.10
+        size_hint_x: 0.10
+        on_press: root.manager.current = 'menu'
+    BoxLayout:
+      size_hint_y: 0.80
+      Label:
+        id: 'result'
+        text: root.c_click
+      Button:
+        on_press: self.size_hint_y = 0.1
+        on_release: self.size_hint_y = 0.5
+        on_press: root.clicker()
+    BoxLayout:
+      size_hint_y: 0.10
+    
+    
